@@ -1,0 +1,27 @@
+.movie-detail {
+  background-color: lightgray;
+  margin: 2rem;
+  line-height: 2rem;
+  width: 100%;
+}
+
+img {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border-radius: 25px;
+}
+
+button {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border-width: 2px;
+  padding: 1rem;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+.category {
+  font-weight: bold;
+}

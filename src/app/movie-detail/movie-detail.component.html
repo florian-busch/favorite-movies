@@ -1,0 +1,15 @@
+<div class='movie-detail'>
+  <div>
+    <img src='{{"https://image.tmdb.org/t/p/original" + favMovie.poster_path }}' width="200px">
+  </div>
+  <div>
+    <div><span class='category'>Title:</span><br>{{ favMovie.title }}</div>
+    <div><span class='category'>Overview:</span><br>{{ favMovie.overview }}</div>
+    <div><span class='category'>Release date:</span><br>{{ favMovie.release_date }}</div>
+    <div><span class='category'>Adult movie:</span><br>{{ favMovie.adult }}</div>
+    <div><span class='category'>Average votes:</span><br>{{ favMovie.vote_average }}</div>
+    </div>
+    <!--favMovie.onFavorites nicht in tmdb-data, in eigener db muss die property hinzugefügt werden (addToFavorites)-->
+<button *ngIf='!favMovie.onFavorites'>Zur Favoritenliste hinzufügen</button> <!-- add function addToFavorites -->
+<button *ngIf='favMovie.onFavorites'>Aus meinen Favoriten entfernen</button> <!-- delete function deleteFromFavorites -->
+</div>
