@@ -1,0 +1,9 @@
+<!--Should display incoming messages like 'Movie added', 'Movie deleted'-->
+<div *ngIf='messageService.messages.length > 0'  class='bg-gray-400 rounded-2xl overflow-hidden ml-4'>
+    <div class='ml-4'>
+        <div *ngFor='let message of messageService.messages'>{{ message }}</div>
+      </div>
+    <div class='ml-4'>
+      <button class='border border-black rounded-2xl px-2 mt-3 bg-red-600' (click)=clear()>Delete Messages</button>
+    </div>
+  </div>

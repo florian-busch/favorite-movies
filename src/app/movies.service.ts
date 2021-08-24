@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movie';
-import { Observable, of } from 'rxjs';
-import { MOVIES } from './mock-api-response';
+import { Observable } from 'rxjs';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +12,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
-  private moviesURL = 'http://127.0.0.1:3000/movies'
-
-  // //getMovies with mock data
-  // getMovies(): Observable<Movie> {
-  //   const movies = of(MOVIES)
-  //   return movies
-  // }
+  private moviesURL = 'http://127.0.0.1:3000/tmdb/movies'
 
   //get movies with http data
   getMovies(query): Observable<Movie> {

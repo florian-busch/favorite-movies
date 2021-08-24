@@ -1,3 +1,7 @@
-<h1>{{title}}</h1>
-<app-movie-detail></app-movie-detail>
-<app-favorite-list></app-favorite-list>
+<nav class='pt-10 pb-4 text-center'>
+  <a routerLink='search' class='m-4 rounded-md p-2 bg-blue-200 hover:bg-blue-400 border-black border transition duration-500 ease-in-out'>Search</a>
+  <a routerLink='favorites' class='m-4 rounded-md p-2 bg-blue-200 hover:bg-blue-400 border-black border transition duration-500 ease-in-out'>My Favorites</a>
+</nav>
+<app-messages></app-messages>
+<router-outlet></router-outlet>
+

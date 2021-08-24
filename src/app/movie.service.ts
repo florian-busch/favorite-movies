@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { MOVIE } from './mock-movie';
 import { Movie } from './movie';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,14 @@ import { Observable, of } from 'rxjs';
 
 export class MovieService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getMovie(): Observable<Movie> {
-    const movie = of(MOVIE)
-    return movie
+  private moviesByID = 'http://127.0.0.1:3000/tmdb/movieByID'
+
+  //TODO: connect to 'Details' button in search results favorite-list
+  getMovieDetail(movieID): Observable<Movie> {
+    let query = {id: movieID}
+    return this.http.post<Movie>(this.moviesByID, query)
   }
+
 }

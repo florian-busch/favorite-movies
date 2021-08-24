@@ -1,0 +1,26 @@
+<div class='mt-6 text-center'>
+  <!--Search for movie titles-->
+  <form #searchMoviesForm='ngForm' (ngSubmit)=getMovies(searchMoviesForm.value) class='text-center'>
+    <input type='text' ngModel name='movieQuery' placeholder='Search for movies' class='bg-gray-900 text-gray-100'><br>
+    <button class='border-gray-600 bg-gray-200 border-2 rounded-lg m-2 p-2 hover:bg-gray-400 transition duration-500 ease-in-out'>Find movies</button>
+  </form>
+
+  <!--Display search results-->
+  <div class="md:grid grid-cols-3 gap-4 mt-4 px-10 flex-1">
+    <div *ngFor='let movie of moviesList.results' class="flex mx-4 mt-4 md:mt-0 bg-gray-400 rounded-2xl hover:shadow-md">
+      <!-- TODO: #4 add default image for movies without poster_path-->  
+      <img *ngIf='movie.poster_path' src='{{"https://image.tmdb.org/t/p/original" + movie.poster_path }}' class="w-36 lg:m-2 rounded-2xl">
+      <div class='flex flex-col justify-between mt-4 ml-4 leading-20'>
+        <div>  
+          <h2 class='font-medium text-indigo-900'>{{ movie.title }}</h2> 
+          <p class='font-light text-sm'>{{ movie.release_date }}</p>
+          <div class='mt-8'>
+            <span *ngIf='movie.adult === true' class='text-red-800'>Adult movie</span>
+          </div>
+        </div>
+        <a routerLink='/detail/{{movie.id}}'
+        class='border-gray-600 border p-1 mb-2 mr-2 text-center rounded-lg hover:bg-gray-300 transition duration-500 ease-in-out'>More</a>      
+      </div>
+    </div>
+  </div>
+</div>
